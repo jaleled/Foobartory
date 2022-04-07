@@ -15,7 +15,6 @@ import com.foobartory.domain.Foo;
 import com.foobartory.domain.FooBar;
 import lombok.Data;
 import com.foobartory.domain.ActionType;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Data
