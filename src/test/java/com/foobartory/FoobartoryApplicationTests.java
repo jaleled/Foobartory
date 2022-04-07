@@ -31,6 +31,8 @@ import static junit.framework.TestCase.*;
     @Test
     void buyAndAddRobotWhenNumberOfRobotLessThanTheerteenTest () {
 
+        IRobotManagement robotManagement = new RobotManagement(2);
+
         robotManagement.buyAndAddRobot();
         addRobotToProductionLine(12);
         assertFalse(robots.isEmpty());

@@ -15,6 +15,7 @@ import com.foobartory.domain.Foo;
 import com.foobartory.domain.FooBar;
 import lombok.Data;
 import com.foobartory.domain.ActionType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Data
@@ -24,6 +25,7 @@ public class Action implements IAction {
 	private int timeMax;
 	private ActionType actionType;
 	private Random rand;
+
 
 
 
@@ -110,8 +112,11 @@ public class Action implements IAction {
 			e.printStackTrace();
 		}
         int randomNumber = this.rand.nextInt(10) +1;
+		/*
+         check operation sucess chance
+		 */
         boolean assembleFoobarIsSuccess = (randomNumber <= (pourcentage/10));
-        ProductionLine.printAssembleFoobarResult(assembleFoobarIsSuccess);
+		ProductionLine.printAssembleFoobarResult(assembleFoobarIsSuccess);
         return assembleFoobarIsSuccess;
     }
 

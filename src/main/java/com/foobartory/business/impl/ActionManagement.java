@@ -3,8 +3,9 @@ package com.foobartory.business.impl;
 import com.foobartory.business.IAction;
 import com.foobartory.business.IActionManagement;
 import com.foobartory.domain.Entrepots;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ActionManagement implements IActionManagement {
 	
 	

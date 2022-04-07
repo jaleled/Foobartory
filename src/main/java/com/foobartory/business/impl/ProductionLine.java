@@ -4,23 +4,26 @@ package com.foobartory.business.impl;
 import com.foobartory.business.IAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductionLine {
-
-    private static final Logger logger = LoggerFactory.getLogger(ProductionLine.class);
-
 
     private ProductionLine() {
     }
 
-    public static void printAction(Robot robot, IAction action) {
-        logger.debug(" robot  numéro : {}",robot.number);
-        logger.debug(" tye d'action  : {}", action.getActionType());
+    private static final Logger logger = LoggerFactory.getLogger(ProductionLine.class);
+
+
+
+
+    public static   void printAction(Robot robot, IAction action) {
+        logger.debug(" robot  number  : {}  do action :{} ",robot.number,action.getActionType() );
     }
    
     
 
-    public static void printAssembleFoobarResult(boolean isSuccess) {
+    public static  void printAssembleFoobarResult(boolean isSuccess) {
         if (isSuccess) {
             logger.debug("Assemle Foobar SUCCESS");
         } else {
@@ -28,19 +31,19 @@ public class ProductionLine {
         }
     }
 
-    public static void printBuyRobot(int nbRobots) {
-        logger.debug(" action: {}",nbRobots);
+    public static  void printBuyRobot(int nbRobots) {
+        logger.debug(": {} Robot bought",nbRobots);
 
     }
 
-    public static void endOfProduction() {
+    public static  void endOfProduction() {
 
-        logger.debug("Fin de La Production");
+        logger.debug("End Of production");
 
     }
 
-    public static void robotInterrupted(Robot robot) {
-        logger.debug("Robot : {}  a été interrompu à la fin de son travail",robot.number);
+    public static  void robotInterrupted(Robot robot) {
+        logger.debug("Robot : {}  interrupted His Work",robot.number);
 
     }
 }

@@ -10,24 +10,30 @@ import com.foobartory.business.IRobot;
 import com.foobartory.business.IRobotManagement;
 import com.foobartory.domain.Entrepots;
 import com.foobartory.domain.ActionType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class Robot implements Runnable , IRobot {
 
-	
-	private Thread worker;
+
+
+
+    private Thread worker;
     int number;
-    
-    IRobotManagement robotManagement;
+
+    @Autowired
+    private IRobotManagement robotManagement;
     IAction action ;
 
+
     private AtomicBoolean running = new AtomicBoolean(false);
-    
-   
+
     public Robot(int number, IRobotManagement robotManagement) {
         this.number = number;
         this.robotManagement = robotManagement;
     }
+
+
 	
 	
 	public void start() {
@@ -56,7 +62,7 @@ public class Robot implements Runnable , IRobot {
           {
               robotManagement.buyAndAddRobot();
           }
-          ProductionLine.printAction(this, action);
+            ProductionLine.printAction(this, action);
           this.takeTimeAndExecuteAction(action) ;
         }
     }
